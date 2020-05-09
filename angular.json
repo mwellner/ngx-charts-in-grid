@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/charts",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -32,6 +33,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -126,5 +133,8 @@
       }
     }
   },
-  "defaultProject": "charts"
+  "defaultProject": "charts",
+  "cli": {
+    "analytics": "e3b7d01e-8b55-4294-970b-af878702ca48"
+  }
 }
